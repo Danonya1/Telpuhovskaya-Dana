@@ -1,0 +1,39 @@
+import random
+
+num = random.randrange(1, 101)
+
+print("I have a number and you have to guess it")
+print("Make your anticipation by inserting a number from 1 to 100")
+
+less = "My number is less"
+more = "My number is more"
+equals = "You win!"
+
+def guess():
+    global num
+    global less
+    global more
+    global equals
+    
+    attempt = 0
+    user_win = 0
+    
+    user_num = int(input())
+    
+    while user_win == 0:
+        if user_num < num:
+            print(more)
+            attempt += 1
+            user_num = int(input())
+        elif user_num > num:
+            print(less)
+            attempt += 1
+            user_num = int(input())
+        else:
+            print(equals)
+            attempt += 1
+            user_win += 1
+    
+    print("You made " + str(attempt) + " attempts.")
+
+guess()
